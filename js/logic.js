@@ -1,16 +1,8 @@
 class Logic {
-	constructor(person,num,x) {
-	this.person = person;
-	this.num = num;	
-		this.start();
+	constructor() {
+	
 	}
 	start() {
-		
-		if(this.num===1) {
-		this.person.x = 100.5;	
-		}
-		var out = document.querySelector('#b'+this.num);
-		
 		setInterval(()=>{
 			out.innerHTML = this.person.x+' '+this.person.y;
 		
@@ -19,5 +11,4 @@ class Logic {
 			},500);
 	}
 }
-let m1 = new Logic(new Mob(),1);
-let m2 = new Logic(new Mob(),2);
+let plauer = new Logic();

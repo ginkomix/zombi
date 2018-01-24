@@ -1,4 +1,4 @@
-class Mob  {
+const Mob = (Mob)=> class Mob  {
 	constructor() {
  this.x =0;
   this.y = 0;
