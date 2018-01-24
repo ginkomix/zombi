@@ -1,0 +1,44 @@
+* {
+	margin: 0;
+	padding: 0;
+    font-family:Rubik; 
+}
+@font-face {
+    font-family:Rubik;
+    src: url(../fonts/Rubik-Light.ttf);
+}
+main {
+	width: 100%;
+	height: 100vh;
+}
+.mainBlock {
+	width: 100%;
+	height: 100%;
+}
+#about, #game, #records {
+	display: none;
+}
+
+header a {
+	text-decoration: none;
+	color: black;
+	text-transform: uppercase;
+	display: block;
+margin: 0 5px;
+	border: 1px solid black;
+	padding: 5px;
+	transition: 0.5s;
+}
+header a:hover {
+	border-radius: 6px;
+}
+header {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 40px;
+	background: rgba(196, 196, 196,0.2);
+	position: absolute;
+	
+}
