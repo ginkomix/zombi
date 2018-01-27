@@ -3,11 +3,12 @@ class Render {
         this.fieldId=fieldId; 
         this.setSizeField= this.setSizeField.bind(this);
         this.img = new Image();
-        window.addEventListener('resize',this.setSizeField);
+       
         this.tuning();
     }
 
     tuning() {
+		 window.addEventListener('resize',this.setSizeField);
         this.field = document.createElement('canvas');
         this.field.id = this.fieldId;
         this.setSizeField()
@@ -16,7 +17,7 @@ class Render {
 
         this.img.src = 'img/bg.jpg';
         this.img.onload = ()=> {
-            ctx.drawImage(this.img, 0, 0,this.width,this.height);
+             this.clearField();
         }
     }
 
