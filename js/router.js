@@ -55,7 +55,9 @@ var router = new Router({
     name: 'game',
     match: (text) => text === 'game',
     onEnter: () => {
-     document.querySelector('#game').style.display = 'block'
+       
+     document.querySelector('#game').style.display = 'block';
+          render.setSizeField();
     },
     onLeave: () => document.querySelector('#game').style.display = 'none'
     
