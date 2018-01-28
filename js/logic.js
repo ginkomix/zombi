@@ -3,20 +3,36 @@ class Logic {
         this.keyboard = this.keyboard.bind(this);
         this.person = new Mob('player');
         this.timer = 0;
+        this.timerSprait = 0;
     }
     
     start() {
         addEventListener('keydown',this.keyboard);
         let self = this;
+         this.sprait();
         this.timer = setTimeout(function tick(){
             
             self.person.move();
             self.cordTrack(self.person)
-            render.clearField();  
-            render.drawImg('player',1,self.person.x,self.person.y);
+            render.clearField(); 
+      
+            render.drawImg('player',self.person.sprait,self.person.spraitDirection,self.person.x,self.person.y);
             
             self.timer = setTimeout(tick,4);
         },4);
+    }
+    
+    sprait() {
+        let self= this;
+        this.timerSprait = setTimeout(function tick(){
+            if(self.person.sprait<3){
+              self.person.sprait++;  
+            } else {
+              self.person.sprait=0;  
+            }
+            
+            self.timerSprait = setTimeout(tick,100);
+        },100)
     }
     
     cordTrack(obj) {
@@ -42,34 +58,26 @@ class Logic {
             case 'w':
                 this.person.moveY = -1;
                 this.person.moveX = 0;
+                this.person.sprait=0;
+                this.person.spraitDirection= 1;
                 break;
             case 's':
                 this.person.moveY = 1;
                 this.person.moveX = 0;
+                this.person.sprait=0;
+                 this.person.spraitDirection= 0;
                 break;
             case 'a':
                 this.person.moveY = 0;
                 this.person.moveX = -1;
+                this.person.sprait=0;
+                this.person.spraitDirection= 2;
                 break;
             case'd':
                 this.person.moveY = 0;
                 this.person.moveX = 1;
-                break;
-            case 'ц':
-                this.person.moveY = -1;
-                this.person.moveX = 0;
-                break;
-            case 'ы':
-                this.person.moveY = 1;
-                this.person.moveX = 0;
-                break;
-            case 'ф':
-                this.person.moveY = 0;
-                this.person.moveX = -1;
-                break;
-            case'в':
-                this.person.moveY = 0;
-                this.person.moveX = 1;
+                this.person.sprait=0;
+                 this.person.spraitDirection= 3;
                 break;
         }
 
