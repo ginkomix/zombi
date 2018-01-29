@@ -1,13 +1,14 @@
 class Render {
     constructor(fieldId){
+        this.width = document.querySelector('#game').offsetWidth;
+        this.height = document.querySelector('#game').offsetHeight; 
         this.fieldId=fieldId; 
         this.setSizeField= this.setSizeField.bind(this);
         this.img = new Image();
         this.imgWidth = 46;
         this.imgHeight = 60;
-        this.width = document.querySelector('#game').offsetWidth;
-        this.height = document.querySelector('#game').offsetHeight; 
-         
+
+
         this.tuning();
     }
 
@@ -47,18 +48,13 @@ class Render {
 
     getSprait(charact,sprait,spraitDirection) {
         if(charact==='player') {
-          return document.querySelector('#player'+spraitDirection+sprait); 
-          
+            return document.querySelector('#player'+spraitDirection+sprait);         
         }
-
     }
 
-    drawImg(charact,sprait,spraitDirection,x,y) {
-       
+    drawImg(charact,sprait,spraitDirection,x,y) {     
         let ctx = this.field.getContext('2d');      
-
         ctx.drawImage(this.getSprait(charact,sprait,spraitDirection), x, y,this.imgWidth,this.imgHeight);
-
     }
 
 
