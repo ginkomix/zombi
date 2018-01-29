@@ -6,14 +6,17 @@ class Logic {
         this.timer = 0;
         this.timerMob = 0;
         this.timerSprait = 0;
+		this.speed = 0
         this.sizeOfMobLevel1 = 7;
+		this.startGameFlag = 1;
     }
 
-    start() {
+    startGame() {
         addEventListener('keydown',this.keyboard);
         let width =window.innerWidth,
             height =window.innerHeight;
-
+		this.person.x = width/2-30;
+		this.person.y = height/2-30;
         this.sprait(this.person);
 
         for(let i =0;i<this.sizeOfMobLevel1;i++) {
@@ -45,23 +48,28 @@ class Logic {
 
             }
         }
-        this.person.x =  width/2-30;
-        this.person.y =  height/2-30;
+        
 
         let self = this;
         this.timer = setTimeout(function tick(){
               render.clearField(); 
-            self.level0();
-            setTimeout(()=>{
+            self.playerStart();
+//            setTimeout(()=>{
                 self.level1();
 
-            },100);
-            setTimeout(tick,10);
-        },10);
+//            },100);
+            setTimeout(tick,self.speed);
+        },self.speed);
 
 
 
     }
+	start() {
+		this.speed = 4;
+	}
+	stop() {
+		this.speed = 0;
+	}
 
     level1() {
 
@@ -73,7 +81,7 @@ class Logic {
       
       
     }
-        level0() {
+        playerStart() {
 
             this.person.move();
             this.cordTrack(this.person)
@@ -155,6 +163,6 @@ class Logic {
     let player = new Logic();
 
 
-player.start();  
+
 
 

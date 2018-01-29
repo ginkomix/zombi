@@ -58,9 +58,16 @@ var router = new Router({
        
      document.querySelector('#game').style.display = 'block';
           render.setSizeField();
+		if(player.startGameFlag){
+			player.startGame();
+			player.startGameFlag = 0;
+		}
+		player.start();
     },
-    onLeave: () => document.querySelector('#game').style.display = 'none'
-    
+    onLeave: () =>{
+		document.querySelector('#game').style.display = 'none';
+		player.stop();
+	}
   },{
     name: 'records',
     match: (text) => text === 'records',
