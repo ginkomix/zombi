@@ -118,9 +118,9 @@ class Logic {
 
     level2() {
         for(let i =0;i<this.sizeOfMobLevel2;i++) {
-            			this.mobLevel2[i].move();
+            this.mobLevel2[i].move();
             this.cordTrack(this.mobLevel2[i]);
-          
+
             if(Math.sqrt(Math.pow((this.mobLevel2[i].x-this.person.x),2)+Math.pow((this.mobLevel2[i].y-this.person.y),2))<this.mobLevel2[i].see)
             {
                 this.pozRectTrack(i)
@@ -139,44 +139,67 @@ class Logic {
     pozRectTrack(i) {
         if(this.mobLevel2[i].x<this.person.x && this.mobLevel2[i].y>this.person.y) {
             let sin = (this.person.y - this.mobLevel2[i].y)/(this.person.x - this.mobLevel2[i].x);
-           this.mobLevel2[i].moveX = 0.6;
-           this.mobLevel2[i].moveY = sin*0.6;
-          
+            if(sin>6) {
+                let cos = Math.sqrt((1-Math.pow(sin,2)));
+                this.mobLevel2[i].moveX = cos*0.6;
+                this.mobLevel2[i].moveY = 0.6;
+            } else { 
+                this.mobLevel2[i].moveX = 0.6;
+                this.mobLevel2[i].moveY = sin*0.6;
+            }
+
         }
         if(this.mobLevel2[i].x<this.person.x && this.mobLevel2[i].y<this.person.y) {
-            
-           let sin = (-this.person.y + this.mobLevel2[i].y)/(this.person.x - this.mobLevel2[i].x);
-           this.mobLevel2[i].moveX = 0.6;
-           this.mobLevel2[i].moveY = -(sin*0.6);
-            
+
+            let sin = (-this.person.y + this.mobLevel2[i].y)/(this.person.x - this.mobLevel2[i].x);
+            if(sin>6) {
+                let cos = Math.sqrt((1-Math.pow(sin,2)));
+                this.mobLevel2[i].moveX = 0.6;
+                this.mobLevel2[i].moveY = -(cos*0.6);
+            } else {
+            this.mobLevel2[i].moveX = 0.6;
+            this.mobLevel2[i].moveY = -(sin*0.6);
+            }
+
         }
         if(this.mobLevel2[i].x>this.person.x && this.mobLevel2[i].y>this.person.y) {
-           let sin = (-this.person.y + this.mobLevel2[i].y)/(-this.person.x + this.mobLevel2[i].x);
-           this.mobLevel2[i].moveX = -0.6;
-           this.mobLevel2[i].moveY = -(sin*0.6);
-            
+            let sin = (-this.person.y + this.mobLevel2[i].y)/(-this.person.x + this.mobLevel2[i].x);
+             if(sin>10) {
+                let cos = Math.sqrt((1-Math.pow(sin,2)));
+                this.mobLevel2[i].moveX = -0.6;
+                this.mobLevel2[i].moveY = -(cos*0.6);
+            } else {
+            this.mobLevel2[i].moveX = -0.6;
+            this.mobLevel2[i].moveY = -(sin*0.6);
+            }
+
         }
         if(this.mobLevel2[i].x>this.person.x && this.mobLevel2[i].y<this.person.y) {
             let sin = (this.person.y - this.mobLevel2[i].y)/(-this.person.x + this.mobLevel2[i].x);
-           this.mobLevel2[i].moveX = -0.6;
-           this.mobLevel2[i].moveY = sin*0.6;
-            console.log(sin);
+             if(sin>10) {
+                let cos = Math.sqrt((1-Math.pow(sin,2)));
+                this.mobLevel2[i].moveX = -0.6;
+                this.mobLevel2[i].moveY = cos*0.6;
+            } else {
+            this.mobLevel2[i].moveX = -0.6;
+            this.mobLevel2[i].moveY = sin*0.6;
+            }
         }
         if(this.mobLevel2[i].x===this.person.x && this.mobLevel2[i].y<this.person.y ) {
-           this.mobLevel2[i].moveX = 0;
-           this.mobLevel2[i].moveY = 0.8;
+            this.mobLevel2[i].moveX = 0;
+            this.mobLevel2[i].moveY = 0.8;
         }
         if(this.mobLevel2[i].x===this.person.x && this.mobLevel2[i].y>this.person.y) {
-           this.mobLevel2[i].moveX = 0;
-           this.mobLevel2[i].moveY = -0.8;
+            this.mobLevel2[i].moveX = 0;
+            this.mobLevel2[i].moveY = -0.8;
         }
-         if(this.mobLevel2[i].x<this.person.x && this.mobLevel2[i].y===this.person.y) {
-           this.mobLevel2[i].moveX = 0.8;
-           this.mobLevel2[i].moveY = 0;
+        if(this.mobLevel2[i].x<this.person.x && this.mobLevel2[i].y===this.person.y) {
+            this.mobLevel2[i].moveX = 0.8;
+            this.mobLevel2[i].moveY = 0;
         }
-         if(this.mobLevel2[i].x>this.person.x && this.mobLevel2[i].y===this.person.y) {
-           this.mobLevel2[i].moveX = -0.8;
-           this.mobLevel2[i].moveY = 0;
+        if(this.mobLevel2[i].x>this.person.x && this.mobLevel2[i].y===this.person.y) {
+            this.mobLevel2[i].moveX = -0.8;
+            this.mobLevel2[i].moveY = 0;
         }
     }
 
