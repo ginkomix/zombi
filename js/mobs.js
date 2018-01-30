@@ -4,7 +4,7 @@ class Mob  {
 		this.y = 1;
         this.sprait = 0;
         this.spraitDirection = 0;
-		this.speed=1;
+		this.see = 150;
 		this.character = character;
         this.moveX = 0;
         this.moveY = 0;
