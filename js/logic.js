@@ -6,7 +6,7 @@ class Logic {
 		this.mobLevel2 = [];
 		this.timer = null;
 		this.timerSprait = null;
-		this.speed = 0
+		this.speed = 0;
 		this.sizeOfMobLevel1 = 10;	
 		this.sizeOfMobLevel2 = 5;
 		this.levelOneStart = 0;
@@ -16,8 +16,7 @@ class Logic {
 
 	startGame() {
 		this.mobLevel1 = [];
-
-		this.speed = 4;
+		this.mobLevel2 = [];
 		this.levelOneStart = 0;
 		this.levelTwoStart = 0;
 		addEventListener('keydown',this.keyboard);
@@ -50,11 +49,13 @@ class Logic {
 			if(self.levelTwoStart) {
 				self.level2();
 			}
-			console.log(self.timer);
-			self.timer = setTimeout(tick,self.speed);
+			if (self.timer != null){
+				self.timer = setTimeout(tick,self.speed);
+			}
 		},self.speed);
 
-	
+
+
 	}
 
 
@@ -95,17 +96,18 @@ class Logic {
 	}
 
 	start() {
-
+		this.startGame();
 
 	}
 
 	stop() {
-
-//		       this.speed =1000000;
-		        console.log(this);
-		        clearTimeout(this.timer);
-		//         clearTimeout(this.timerSprait);
-		//        this.startGame();
+		clearTimeout(this.timer);
+		this.timer = null;
+		clearTimeout(this.timerSprait);
+		this.timerSprait = null;
+		setTimeout(()=>{
+			this.start();
+		},3000)
 	}
 
 	level1() {
@@ -201,8 +203,9 @@ class Logic {
 			} else {
 				obj.sprait=0;  
 			}
-
-			self.timerSprait = setTimeout(tick,100);
+			if(self.timerSprait!=null) {
+				self.timerSprait = setTimeout(tick,100);
+			}
 		},100)
 	}
 
