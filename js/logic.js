@@ -1,7 +1,7 @@
 class Logic {
 	constructor() {
 		this.keyboard = this.keyboard.bind(this);
-		this.person = new Mob('player');
+		this.person = null;
 		this.mobLevel1 = [];
 		this.mobLevel2 = [];
 		this.timer = null;
@@ -14,14 +14,18 @@ class Logic {
 		this.levelTwoStart = 0;
 		this.record = 0;
 		this.startGame = this.startGame.bind(this);
+        addEventListener('keydown',this.keyboard);
+        document.querySelector('.newGame').addEventListener('click',this.startGame);
 	}
 
 	startGame() {
+        render.gameOver();
+        this.person = new Mob('player')
 		this.mobLevel1 = [];
 		this.mobLevel2 = [];
 		this.levelOneStart = 0;
 		this.levelTwoStart = 0;
-		addEventListener('keydown',this.keyboard);
+		
 		let width =window.innerWidth,
 			height =window.innerHeight;
 
@@ -37,10 +41,10 @@ class Logic {
 		setTimeout(()=>{
 			self.levelOneStart = 1;
 
-		},1000);
+		},3000);
 		setTimeout(()=>{
 			self.levelTwoStart = 1;
-		},5000); 
+		},7000); 
 
 		self.timer = setTimeout(function tick(){
 			render.clearField(); 
@@ -98,9 +102,7 @@ class Logic {
 		}
 	}
 
-	start() {
-		this.startGame();
-	}
+	 
 
 	recordStartTimer() {
 		let self = this;
@@ -109,7 +111,7 @@ class Logic {
 			self.record++;
 			render.timerRecord(self.record);
 			if(self.recordTimer!=null)	{
-				self.recordTimer(tick(),1000);
+				self.recordTimer = setTimeout(tick,1000);
 			}
 		},1000);
 	}
@@ -119,12 +121,11 @@ class Logic {
 		this.timer = null;
 		clearTimeout(this.timerSprait);
 		this.timerSprait = null;
-		clearTimeout(this.recordStartTimer);
-		this.recordStartTimer = null;
-		this.record = 0;
-		setTimeout(()=>{
-			this.start();
-		},3000)
+		clearTimeout(this.recordTimer);
+		this.recordTimer = null;
+		
+        render.gameOver(this.record);
+        this.record = 0;
 	}
 
 	level1() {
@@ -162,6 +163,7 @@ class Logic {
 
 			this.mobLevel2[i].moveX = 0.6;
 			this.mobLevel2[i].moveY = sin*0.6;
+            this.mobLevel2[i].spraitDirection = 3;
 
 
 		}
@@ -171,7 +173,7 @@ class Logic {
 
 			this.mobLevel2[i].moveX = 0.6;
 			this.mobLevel2[i].moveY = -(sin*0.6);
-
+              this.mobLevel2[i].spraitDirection = 3; 
 
 		}
 		if(this.mobLevel2[i].x>this.person.x && this.mobLevel2[i].y>this.person.y) {
@@ -179,31 +181,28 @@ class Logic {
 
 			this.mobLevel2[i].moveX = -0.6;
 			this.mobLevel2[i].moveY = -(sin*0.6);
-
+            this.mobLevel2[i].spraitDirection = 2; 
 
 		}
 		if(this.mobLevel2[i].x>this.person.x && this.mobLevel2[i].y<this.person.y) {
 			let sin = (this.person.y - this.mobLevel2[i].y)/(leng);
-
 			this.mobLevel2[i].moveX = -0.6;
 			this.mobLevel2[i].moveY = sin*0.6;
+             this.mobLevel2[i].spraitDirection = 2; 
 
 		}
-		if(this.mobLevel2[i].x===this.person.x && this.mobLevel2[i].y<this.person.y ) {
-			this.mobLevel2[i].moveX = 0;
-			this.mobLevel2[i].moveY = 0.8;
+        if(this.mobLevel2[i].x===this.person.x && this.mobLevel2[i].y>this.person.y) {
+		
+
+		
+            this.mobLevel2[i].spraitDirection = 0; 
+
 		}
-		if(this.mobLevel2[i].x===this.person.x && this.mobLevel2[i].y>this.person.y) {
-			this.mobLevel2[i].moveX = 0;
-			this.mobLevel2[i].moveY = -0.8;
-		}
-		if(this.mobLevel2[i].x<this.person.x && this.mobLevel2[i].y===this.person.y) {
-			this.mobLevel2[i].moveX = 0.8;
-			this.mobLevel2[i].moveY = 0;
-		}
-		if(this.mobLevel2[i].x>this.person.x && this.mobLevel2[i].y===this.person.y) {
-			this.mobLevel2[i].moveX = -0.8;
-			this.mobLevel2[i].moveY = 0;
+		if(this.mobLevel2[i].x===this.person.x && this.mobLevel2[i].y<this.person.y) {
+			
+			
+             this.mobLevel2[i].spraitDirection = 1; 
+
 		}
 	}
 

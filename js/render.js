@@ -60,6 +60,18 @@ class Render {
 		
 		this.timer.innerHTML = num;
 	}
+    
+    gameOver(rec =-1) {
+       let div = document.querySelector('.gameOver');
+      if(rec===-1) {
+         div.style.display = 'none'; 
+      } else {
+           div.style.display = 'flex'; 
+          document.querySelector('.record p').innerHTML = rec;
+      } 
+        
+        
+    }
 	
 }
 let render = new Render('gameField');

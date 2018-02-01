@@ -65,6 +65,7 @@ var router = new Router({
     onLeave: () =>{
 		document.querySelector('#game').style.display = 'none';
 		player.stop();
+        render.gameOver();
 	}
   },{
     name: 'records',

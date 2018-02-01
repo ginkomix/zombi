@@ -59,3 +59,51 @@ header {
 	height: 40px;
 	color: white;
 }
+.gameOver{
+    display: none;
+    position: absolute;
+   
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    top: 50%;
+    right:50%;
+    margin-right: -150px;
+    margin-top: -75px;
+    width: 300px;
+    height: 150px;
+   border-radius: 3px;
+    background: rgba(196, 196, 196,0.8);  
+}
+.button {
+    display: flex;
+    
+}
+.button a{
+    display: block;
+    padding: 5px; 
+    margin: 0 5px;
+    border: 1px solid black;
+    border-radius: 2px;
+    text-decoration: none;
+    color: black;
+    transition: 0.3s;
+    cursor: pointer;
+  
+}
+.button a:hover {
+    border-radius: 6px;
+}
+.record {
+    display: flex;
+    margin-bottom: 5px;
+}
+
+
+
+
+
+
+
+
+
