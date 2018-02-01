@@ -110,7 +110,31 @@ header {
     font-size: 25px;
     color: white;
 }
+.buttonMobile {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 180px;
+    height: 180px;
 
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;      
+}
+ .center-button{
+    width: 100%;
+     display: flex;
+     justify-content:space-around
+    
+}
+.buttonMobile div button {
+    width: 46px;
+    height: 46px;
+    background: white;
+    border:0px;
+    border-radius: 100px;
+}
 
 
 

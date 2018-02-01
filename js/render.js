@@ -30,6 +30,9 @@ class Render {
         this.field.width = this.width;
         this.field.height = this.height; 
         this.clearField();
+        if(this.width<600) {
+           document.querySelector('.buttonMobile');
+           }
     }
 
     getWidth() {
