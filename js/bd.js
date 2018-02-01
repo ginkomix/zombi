@@ -2,25 +2,28 @@ class Bd {
     constructor(name) {
         this.name = name; 
     }
-    setStorage(text) {
+     sortRecord(arr) {
+       return arr.sort(this.compareNumeric);
+    }
+    
+    compareNumeric(a, b) {
+  if (a > b) return -1;
+  if (a < b) return 1;
+}
+    
+    save(text) {
        var sObj;
         var storageText =JSON.parse(localStorage.getItem(this.name));
-        var saveObj = {};
-        if(!storageText)
-        {
-            saveObj = text;
-        }else {
-            for(var key in storageText) {
-                var num = parseInt(key)+1;
-                saveObj[num] = storageText[key];
-                if((size-1) === num) {
-                    break;
-                }
-            }
-            Object.assign(saveObj,text);
-        }
-        var sObj = JSON.stringify(saveObj);
-        localStorage.setItem(where,sObj);
+           storageText.push(text);    
+        storageText = this.sortRecord(storageText);
+        storageText.length = 10;
+        var sArr = JSON.stringify(this.sortRecord(storageText));
+        localStorage.setItem(this.name,sArr);
+    }
+    
+    outputSave() {
+       return JSON.parse(localStorage.getItem(this.name));
+        
     }
 
 }

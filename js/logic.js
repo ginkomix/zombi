@@ -19,7 +19,7 @@ class Logic {
 	}
 
 	startGame() {
-        render.gameOver();
+        render.cloasGameOver();
         this.person = new Mob('player')
 		this.mobLevel1 = [];
 		this.mobLevel2 = [];
@@ -102,8 +102,6 @@ class Logic {
 		}
 	}
 
-	 
-
 	recordStartTimer() {
 		let self = this;
 
@@ -117,15 +115,23 @@ class Logic {
 	}
 
 	stop() {
-		clearTimeout(this.timer);
+        Promise.resolve()
+        .then(()=>{
+           clearTimeout(this.timer);
 		this.timer = null;
 		clearTimeout(this.timerSprait);
 		this.timerSprait = null;
 		clearTimeout(this.recordTimer);
 		this.recordTimer = null;
+		bd.save(this.record);
+        render.gameOver(this.record); 
+        })
+        .then(()=>{
+            
+             this.record = 0;
+        });
 		
-        render.gameOver(this.record);
-        this.record = 0;
+       
 	}
 
 	level1() {

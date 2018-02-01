@@ -60,15 +60,37 @@ class Render {
 		
 		this.timer.innerHTML = num;
 	}
+    outPutRecord() {
+      let arr = bd.outputSave();
+        let where = document.querySelector('#records');
+         where.innerHTML = '';
+        if(arr === null){
+            return;
+        }
+        let div =  document.createElement('div');
+        for(let i = 0;i<arr.length;i++) {
+          let p =  document.createElement('P');
+            console.log('div');
+            p.innerHTML = i+1+'. '+arr[i];
+            div.appendChild(p);
+            
+            if(i===9) {
+                
+            }
+        }
+       
+        where.appendChild(div);
+    }
     
-    gameOver(rec =-1) {
-       let div = document.querySelector('.gameOver');
-      if(rec===-1) {
-         div.style.display = 'none'; 
-      } else {
-           div.style.display = 'flex'; 
-          document.querySelector('.record p').innerHTML = rec;
-      } 
+    cloasGameOver() {
+        document.querySelector('.gameOver').style.display = 'none';
+    }
+    
+    gameOver(rec) {
+
+
+           document.querySelector('.gameOver').style.display = 'flex'; 
+          document.querySelector('.record p').innerHTML = rec; 
         
         
     }
