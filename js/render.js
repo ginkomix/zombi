@@ -90,7 +90,7 @@ class Render {
 
 
            document.querySelector('.gameOver').style.display = 'flex'; 
-          document.querySelector('.record p').innerHTML = rec; 
+          document.querySelector('.rec').innerHTML = rec; 
         
         
     }

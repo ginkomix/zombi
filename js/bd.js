@@ -13,7 +13,7 @@ class Bd {
     
     save(text) {
        var sObj;
-        var storageText =JSON.parse(localStorage.getItem(this.name));
+        var storageText =JSON.parse(localStorage.getItem(this.name))||[];
            storageText.push(text);    
         storageText = this.sortRecord(storageText);
         storageText.length = 10;

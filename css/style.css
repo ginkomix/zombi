@@ -24,7 +24,10 @@ main {
 #about, #game, #records {
 	display: none;
 }
-
+#about,  #records {
+    background: url(../img/bg.jpg) no-repeat center;
+     background-size: cover;
+}
 header a {
 	text-decoration: none;
 	color: white;
@@ -103,9 +106,9 @@ header {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    margin-top: 50px;
+    padding-top: 50px;
     font-size: 25px;
-    
+    color: white;
 }
 
 
