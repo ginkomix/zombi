@@ -6,11 +6,13 @@ class Logic {
 		this.mobLevel2 = [];
 		this.timer = null;
 		this.timerSprait = null;
+		this.recordTimer = null;
 		this.speed = 0;
 		this.sizeOfMobLevel1 = 10;	
 		this.sizeOfMobLevel2 = 5;
 		this.levelOneStart = 0;
 		this.levelTwoStart = 0;
+		this.record = 0;
 		this.startGame = this.startGame.bind(this);
 	}
 
@@ -31,8 +33,10 @@ class Logic {
 		this.locationMob(this.sizeOfMobLevel1,'level1',this.mobLevel1,0.7);
 		this.locationMob(this.sizeOfMobLevel2,'level2',this.mobLevel2,0.5);
 		let self = this;
+		this.recordStartTimer();
 		setTimeout(()=>{
 			self.levelOneStart = 1;
+
 		},1000);
 		setTimeout(()=>{
 			self.levelTwoStart = 1;
@@ -57,7 +61,6 @@ class Logic {
 
 
 	}
-
 
 	locationMob(size,level,arr,speedMob) {
 		let width =window.innerWidth,
@@ -97,7 +100,18 @@ class Logic {
 
 	start() {
 		this.startGame();
+	}
 
+	recordStartTimer() {
+		let self = this;
+
+		this.recordTimer = setTimeout( function tick(){
+			self.record++;
+			render.timerRecord(self.record);
+			if(self.recordTimer!=null)	{
+				self.recordTimer(tick(),1000);
+			}
+		},1000);
 	}
 
 	stop() {
@@ -105,6 +119,9 @@ class Logic {
 		this.timer = null;
 		clearTimeout(this.timerSprait);
 		this.timerSprait = null;
+		clearTimeout(this.recordStartTimer);
+		this.recordStartTimer = null;
+		this.record = 0;
 		setTimeout(()=>{
 			this.start();
 		},3000)

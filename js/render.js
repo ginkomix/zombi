@@ -1,14 +1,13 @@
 class Render {
     constructor(fieldId){
         this.width = document.querySelector('#game').offsetWidth;
-        this.height = document.querySelector('#game').offsetHeight; 
+        this.height = document.querySelector('#game').offsetHeight;
+		this.timer = document.querySelector('.timer');
         this.fieldId=fieldId; 
         this.setSizeField= this.setSizeField.bind(this);
         this.img = new Image();
         this.imgWidth = 46;
         this.imgHeight = 60;
-
-
         this.tuning();
     }
 
@@ -57,6 +56,10 @@ class Render {
         ctx.drawImage(this.getSprait(charact,sprait,spraitDirection), x, y,this.imgWidth,this.imgHeight);
     }
 
-
+	timerRecord(num) {
+		
+		this.timer.innerHTML = num;
+	}
+	
 }
 let render = new Render('gameField');
