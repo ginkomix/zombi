@@ -164,7 +164,7 @@ class Logic {
 	}
 
 	pozRectTrack(i,leng) {
-		if(this.mobLevel2[i].x<this.person.x && this.mobLevel2[i].y>this.person.y) {
+		if(this.mobLevel2[i].x+10<this.person.x && this.mobLevel2[i].y>this.person.y) {
 			let sin = (this.person.y - this.mobLevel2[i].y)/(leng);
 
 			this.mobLevel2[i].moveX = 0.6;
@@ -173,7 +173,7 @@ class Logic {
 
 
 		}
-		if(this.mobLevel2[i].x<this.person.x && this.mobLevel2[i].y<this.person.y) {
+		if(this.mobLevel2[i].x+10<this.person.x && this.mobLevel2[i].y<this.person.y) {
 
 			let sin = (-this.person.y + this.mobLevel2[i].y)/(leng);
 
@@ -182,7 +182,7 @@ class Logic {
               this.mobLevel2[i].spraitDirection = 3; 
 
 		}
-		if(this.mobLevel2[i].x>this.person.x && this.mobLevel2[i].y>this.person.y) {
+		if(this.mobLevel2[i].x-10>this.person.x && this.mobLevel2[i].y>this.person.y) {
 			let sin = (-this.person.y + this.mobLevel2[i].y)/(leng);
 
 			this.mobLevel2[i].moveX = -0.6;
@@ -190,21 +190,21 @@ class Logic {
             this.mobLevel2[i].spraitDirection = 2; 
 
 		}
-		if(this.mobLevel2[i].x>this.person.x && this.mobLevel2[i].y<this.person.y) {
+		if(this.mobLevel2[i].x-10>this.person.x && this.mobLevel2[i].y<this.person.y) {
 			let sin = (this.person.y - this.mobLevel2[i].y)/(leng);
 			this.mobLevel2[i].moveX = -0.6;
 			this.mobLevel2[i].moveY = sin*0.6;
              this.mobLevel2[i].spraitDirection = 2; 
 
 		}
-        if(this.mobLevel2[i].x===this.person.x && this.mobLevel2[i].y>this.person.y) {
+        if(this.mobLevel2[i].x+10<this.person.x && this.mobLevel2[i].x-10>this.person.x && this.mobLevel2[i].y>this.person.y) {
 		
 
 		
             this.mobLevel2[i].spraitDirection = 0; 
 
 		}
-		if(this.mobLevel2[i].x===this.person.x && this.mobLevel2[i].y<this.person.y) {
+		if(this.mobLevel2[i].x+10<this.person.x && this.mobLevel2[i].x-10>this.person.x && this.mobLevel2[i].y<this.person.y) {
 			
 			
              this.mobLevel2[i].spraitDirection = 1; 

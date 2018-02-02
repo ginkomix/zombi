@@ -73,16 +73,19 @@ class Render {
         let div =  document.createElement('div');
         for(let i = 0;i<arr.length;i++) {
           let p =  document.createElement('P');
-            console.log('div');
+			if(arr[i]===null) {
+				arr[i] = 0;
+			}
             p.innerHTML = i+1+'. '+arr[i];
             div.appendChild(p);
             
             if(i===9) {
-                
+				 where.appendChild(div);
+                return;
             }
         }
        
-        where.appendChild(div);
+       
     }
     
     cloasGameOver() {

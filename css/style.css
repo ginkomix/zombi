@@ -24,6 +24,14 @@ main {
 #about, #game, #records {
 	display: none;
 }
+#about {
+	text-align: center;
+	color: white;
+	
+}
+#about h1{
+	padding-top: 50px;
+}
 #about,  #records {
     background: url(../img/bg.jpg) no-repeat center;
      background-size: cover;
