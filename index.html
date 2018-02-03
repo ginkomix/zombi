@@ -1,73 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8">
-		<title>Document</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" href="css/style.css">
-	</head>
-	<body>
-		<header>
-			<a href="#">About</a>
-			<a href="#game">Game</a>
-			<a href="#records">Records</a>
-			<div class="timer">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <header>
+            <a href="#">About</a>
+            <a href="#game">Game</a>
+            <a href="#records">Records</a>
+            <div class="timer">
 
-			</div>
-		</header>
-		<main>
-			<div id="about" class="mainBlock">
-				<h1> Zomdi</h1>
-				<h2>ginkomix</h2>
-			</div>
-			<div id="game" class="mainBlock">
+            </div>
+        </header>
+        <main>
+            <div id="about" class="mainBlock">
+                <h1> Zomdi</h1>
+                <h2>ginkomix</h2>
+            </div>
+            <div id="game" class="mainBlock">
+                <div class="buttonMobile">
+                    <div><button id="w">w</button></div>
+                    <div class="center-button"><button id="a">a</button><button id="d">d</button></div>
+                    <div><button id="s">s</button></div>
+                </div>
+            </div>
+            <div id="records" class="mainBlock">
 
-			</div>
-			<div id="records" class="mainBlock">
+            </div>
 
-			</div>
+        </main>
+        <div class="person">
+            <img src="./img/00.png" id="player00" class="person-img"alt="">
+            <img src="./img/01.png" id="player01" class="person-img"alt="">
+            <img src="./img/02.png"  id="player02"class="person-img"alt="">
+            <img src="./img/03.png"  id="player03"class="person-img"alt="">
 
-		</main>
-		<div class="person">
-			<img src="./img/00.png" id="player00" class="person-img"alt="">
-			<img src="./img/01.png" id="player01" class="person-img"alt="">
-			<img src="./img/02.png"  id="player02"class="person-img"alt="">
-			<img src="./img/03.png"  id="player03"class="person-img"alt="">
+            <img src="./img/10.png"  id="player10" class="person-img"alt="">
+            <img src="./img/11.png"  id="player11" class="person-img"alt="">
+            <img src="./img/12.png"  id="player12" class="person-img"alt="">
+            <img src="./img/13.png"  id="player13" class="person-img"alt="">
 
-			<img src="./img/10.png"  id="player10" class="person-img"alt="">
-			<img src="./img/11.png"  id="player11" class="person-img"alt="">
-			<img src="./img/12.png"  id="player12" class="person-img"alt="">
-			<img src="./img/13.png"  id="player13" class="person-img"alt="">
+            <img src="./img/20.png"  id="player20" class="person-img"alt="">
+            <img src="./img/21.png"  id="player21" class="person-img"alt="">
+            <img src="./img/22.png"  id="player22" class="person-img"alt="">
+            <img src="./img/23.png"  id="player23" class="person-img"alt="">
 
-			<img src="./img/20.png"  id="player20" class="person-img"alt="">
-			<img src="./img/21.png"  id="player21" class="person-img"alt="">
-			<img src="./img/22.png"  id="player22" class="person-img"alt="">
-			<img src="./img/23.png"  id="player23" class="person-img"alt="">
+            <img src="./img/30.png"  id="player30" class="person-img"alt="">
+            <img src="./img/31.png"  id="player31" class="person-img"alt="">
+            <img src="./img/32.png"  id="player32" class="person-img"alt="">
+            <img src="./img/33.png"  id="player33" class="person-img"alt="">
+        </div>
+        <div class="gameOver">
+            <h1>Game Over</h1>
+            <div class="record"><span>Record: </span> <span class="rec"></span></div>
+            <div class="button">
+                <a href="#records">Record</a>
+                <a class="newGame">New Game</a>
+            </div>
+        </div>
 
-			<img src="./img/30.png"  id="player30" class="person-img"alt="">
-			<img src="./img/31.png"  id="player31" class="person-img"alt="">
-			<img src="./img/32.png"  id="player32" class="person-img"alt="">
-			<img src="./img/33.png"  id="player33" class="person-img"alt="">
-		</div>
-		<div class="gameOver">
-			<h1>Game Over</h1>
-			<div class="record"><span>Record: </span> <span class="rec"></span></div>
-			<div class="button">
-				<a href="#records">Record</a>
-				<a class="newGame">New Game</a>
-			</div>
-		</div>
-		<div class="buttonMobile">
-			<div><button id="w">w</button></div>
-			<div class="center-button"><button id="a">a</button><button id="d">d</button></div>
-			<div><button id="s">s</button></div>
-		</div>
-		<script src="js/mobs.js"></script>
-		<script src="js/logic.js"></script>
-		<script src="js/render.js"></script>
-		<script src="js/bd.js"></script>
-		<script src="js/replay.js"></script>
-		<script src="js/router.js"></script>
+        <script src="js/mobs.js"></script>
+        <script src="js/logic.js"></script>
+        <script src="js/render.js"></script>
+        <script src="js/bd.js"></script>
+        <script src="js/replay.js"></script>
+        <script src="js/router.js"></script>
 
-	</body>
+    </body>
 </html>
