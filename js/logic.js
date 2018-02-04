@@ -8,8 +8,8 @@ class Logic {
         this.timerSprait = null;
         this.recordTimer = null;
         this.speed = 0;
-        this.sizeOfMobLevel1 = 10;	
-        this.sizeOfMobLevel2 = 5;
+        this.sizeOfMobLevel1 = 1;	
+        this.sizeOfMobLevel2 = 1;
         this.levelOneStart = 0;
         this.levelTwoStart = 0;
         this.record = 0;
@@ -26,6 +26,7 @@ class Logic {
             render.cloasGameOver();
             replay.delete();
             this.person = new Mob('player');
+			
             this.mobLevel1 = [];
             this.mobLevel2 = [];
             this.levelOneStart = 0;
@@ -41,12 +42,13 @@ class Logic {
 
             this.locationMob(this.sizeOfMobLevel1,'level1',this.mobLevel1,0.7);
             this.locationMob(this.sizeOfMobLevel2,'level2',this.mobLevel2,0.5);
-
-        })
-            .then(()=>{
-
+			console.log(this.mobLevel1);
+			console.log(this.mobLevel2);
             replay.pushStart(this.mobLevel1);
             replay.pushStart(this.mobLevel2);
+        })
+            .then(()=>{
+			
             let self = this;
             this.recordStartTimer();
             setTimeout(()=>{
@@ -158,9 +160,12 @@ class Logic {
         removeEventListener('keydown',this.keyboard);
         this.person = new Mob('player');
         this.mobLevel1 = [];
+		
         this.mobLevel2 =[];
         this.mobLevel1 = replay.getStart()[0];
         this.mobLevel2 = replay.getStart()[1];
+		console.log( this.mobLevel1);
+		console.log( this.mobLevel2);
         this.levelOneStart = 0;
         this.levelTwoStart = 0;
 
