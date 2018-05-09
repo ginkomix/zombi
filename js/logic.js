@@ -146,7 +146,7 @@ class Logic {
             if(!a) {
                 bd.save(this.record);
                 render.gameOver(this.record); 
-                this.startReplay();
+             
             }
 
         })
