@@ -156,56 +156,56 @@ class Logic {
         });
     }
 
-    startReplay() {
-        removeEventListener('keydown',this.keyboard);
-        this.person = new Mob('player');
-        this.mobLevel1 = [];
+    // startReplay() {
+    //     removeEventListener('keydown',this.keyboard);
+    //     this.person = new Mob('player');
+    //     this.mobLevel1 = [];
 		
-        this.mobLevel2 =[];
-        this.mobLevel1 = replay.getStart()[0];
-        this.mobLevel2 = replay.getStart()[1];
-		console.log( this.mobLevel1);
-		console.log( this.mobLevel2);
-        this.levelOneStart = 0;
-        this.levelTwoStart = 0;
+    //     this.mobLevel2 =[];
+    //     this.mobLevel1 = replay.getStart()[0];
+    //     this.mobLevel2 = replay.getStart()[1];
+	// 	console.log( this.mobLevel1);
+	// 	console.log( this.mobLevel2);
+    //     this.levelOneStart = 0;
+    //     this.levelTwoStart = 0;
 
-        let width =window.innerWidth,
-            height =window.innerHeight;
+    //     let width =window.innerWidth,
+    //         height =window.innerHeight;
 
-        this.person.x = width/2-30;
-        this.person.y = height/2-30;
-        this.sprait(this.person);
+    //     this.person.x = width/2-30;
+    //     this.person.y = height/2-30;
+    //     this.sprait(this.person);
 
-        let self = this;
-        setTimeout(()=>{
-            self.levelOneStart = 1;
+    //     let self = this;
+    //     setTimeout(()=>{
+    //         self.levelOneStart = 1;
 
-        },3000);
-        setTimeout(()=>{
-            self.levelTwoStart = 1;
-        },7000); 
-        let moveArr = replay.getReplay(),
-            i=0;
+    //     },3000);
+    //     setTimeout(()=>{
+    //         self.levelTwoStart = 1;
+    //     },7000); 
+    //     let moveArr = replay.getReplay(),
+    //         i=0;
 
-        self.timer = setTimeout(function tick(){
+    //     self.timer = setTimeout(function tick(){
 
-            render.clearField(); 
-            self.playerMoveReplay(moveArr[i].x,moveArr[i].y);
-            if(self.levelOneStart) {
-                self.level1(1);
-            }
-            if(self.levelTwoStart) {
-                self.level2(1);
-            }
-            if (self.timer != null){
-                self.timer = setTimeout(tick,self.speed);
-            }
-            i++;
+    //         render.clearField(); 
+    //         self.playerMoveReplay(moveArr[i].x,moveArr[i].y);
+    //         if(self.levelOneStart) {
+    //             self.level1(1);
+    //         }
+    //         if(self.levelTwoStart) {
+    //             self.level2(1);
+    //         }
+    //         if (self.timer != null){
+    //             self.timer = setTimeout(tick,self.speed);
+    //         }
+    //         i++;
 
-            if((i+1)>moveArr.length) {
-                self.stop(1);
-            }
-        },self.speed);
+    //         if((i+1)>moveArr.length) {
+    //             self.stop(1);
+    //         }
+    //     },self.speed);
 
 
     }
